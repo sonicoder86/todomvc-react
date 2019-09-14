@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Item } from './Item';
 
 export class List extends Component {
+  static propTypes = {
+    todos: PropTypes.array.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
+  };
+
   render() {
     return (
       <section className="main">
@@ -8,23 +16,14 @@ export class List extends Component {
         <label htmlFor="toggle-all" ></label>
 
         <ul className="todo-list">
-          <li className="">
-            <div className="view">
-              <input className="toggle" type="checkbox" checked=""/>
-              <label>first</label>
-              <button className="destroy"></button>
-            </div>
-            <input className="edit" value="first" />
-          </li>
-
-          <li className="completed">
-            <div className="view">
-              <input className="toggle" type="checkbox" checked="" />
-              <label>last</label>
-              <button className="destroy"></button>
-            </div>
-            <input className="edit" value="last" />
-          </li>
+          {this.props.todos.map(todo =>
+            <Item
+              key={todo.id}
+              todo={todo}
+              onUpdate={this.props.onUpdate}
+              onDelete={this.props.onDelete}
+            />
+          )}
         </ul>
       </section>
     );
