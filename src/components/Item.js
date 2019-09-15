@@ -10,7 +10,8 @@ export class Item extends Component {
   };
 
   state = {
-    editing: false
+    editing: false,
+    name: this.props.todo.name
   };
 
   handleEdit() {
@@ -28,11 +29,23 @@ export class Item extends Component {
     this.props.onDelete(this.props.todo.id);
   }
 
+  handleChange(event) {
+    this.setState({ name: event.target.value });
+  }
+
+  handleBlur() {
+    this.props.onUpdate(
+      this.props.todo.id,
+      { name: this.state.name }
+    );
+    this.setState({ editing: false });
+  }
+
   render() {
     const { name, completed } = this.props.todo;
 
     return (
-      <li className={classNames({ completed })}>
+      <li className={classNames({ completed, editing: this.state.editing })}>
         <div className="view">
           <input
             className="toggle"
@@ -46,6 +59,16 @@ export class Item extends Component {
             onClick={() => this.handleDelete()}
           />
         </div>
+        {
+          this.state.editing &&
+          <input
+            className="edit"
+            value={this.state.name}
+            onChange={(e) => this.handleChange(e)}
+            onBlur={() => this.handleBlur()}
+            autoFocus={true}
+          />
+        }
       </li>
     );
   }
