@@ -1,96 +1,35 @@
 import React, { Component } from 'react';
-import uuid from 'uuid/v4';
-import { Header } from './Header';
-import { List } from './List';
-import { Footer } from './Footer';
-import { FILTERS } from '../constants/Filters';
-import { selectCompleted, selectNotCompleted, selectVisible } from '../selectors/Todo';
+import PropTypes from 'prop-types';
+import { selectVisible } from '../selectors/Todo';
 import { TodoLocal } from '../services/TodoLocal';
+import { ListContainer, FooterContainer, HeaderContainer } from '../containers';
 
 export class App extends Component {
-  state = {
-    todos: [],
-    filter: FILTERS.all
+  static propTypes = {
+    todos: PropTypes.array.isRequired,
+    filter: PropTypes.string.isRequired,
+    onLoad: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    this.setState({
-      todos: TodoLocal.loadTodos()
-    });
+    this.props.onLoad(TodoLocal.loadTodos());
   }
 
   componentDidUpdate() {
-    TodoLocal.storeTodos(this.state.todos);
-  }
-
-  onCreate(name) {
-    const newTodo = { id: uuid(), name, completed: false };
-
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    });
-  }
-
-  onUpdate(id, values) {
-    this.setState({
-      todos: this.state.todos.map(
-        todo => todo.id === id ? { ...todo, ...values } : todo
-      )
-    });
-  }
-
-  onDelete(id) {
-    this.setState({
-      todos: this.state.todos.filter(
-        todo => todo.id !== id
-      )
-    });
-  }
-
-  onCompleteAll() {
-    const todos = this.state.todos;
-    const areAllCompleted = todos.length && selectCompleted(todos).length === todos.length;
-
-    this.setState({
-      todos: todos.map(
-        todo => ({ ...todo, ...{ completed: !areAllCompleted } })
-      )
-    });
-  }
-
-  onClearCompleted() {
-    this.setState({
-      todos: selectNotCompleted(this.state.todos)
-    });
-  }
-
-  onFilterSelect(filter) {
-    this.setState({ filter });
+    TodoLocal.storeTodos(this.props.todos);
   }
 
   render() {
     return (
       <section className="todoapp">
-        <Header
-          onSave={(name) => this.onCreate(name)}
-        />
+        <HeaderContainer />
         {
-          !!this.state.todos.length &&
-          <List
-            todos={selectVisible(this.state.todos, this.state.filter)}
-            onUpdate={(id, values) => this.onUpdate(id, values)}
-            onDelete={(id) => this.onDelete(id)}
-            onCompleteAll={() => this.onCompleteAll()}
-          />
+          !!this.props.todos.length &&
+          <ListContainer todos={selectVisible(this.props.todos, this.props.filter)} />
         }
         {
-          !!this.state.todos.length &&
-          <Footer
-            todos={this.state.todos}
-            filter={this.state.filter}
-            onClearCompleted={() => this.onClearCompleted()}
-            onFilterSelect={(filter) => this.onFilterSelect(filter)}
-          />
+          !!this.props.todos.length &&
+          <FooterContainer todos={this.props.todos} filter={this.props.filter} />
         }
       </section>
     );

@@ -5,7 +5,7 @@ const ENTER_KEY = 13;
 
 export class Header extends Component {
   static propTypes = {
-    onSave: PropTypes.func.isRequired
+    onCreate: PropTypes.func.isRequired
   };
 
   state = {
@@ -18,7 +18,7 @@ export class Header extends Component {
 
   handleSubmit(event) {
     if (event.which === ENTER_KEY) {
-      this.props.onSave(this.state.name);
+      this.props.onCreate(this.state.name);
       this.setState({ name: '' });
     }
   }
