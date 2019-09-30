@@ -6,7 +6,7 @@ export class List extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     onUpdate: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
     onCompleteAll: PropTypes.func.isRequired
   };
 
@@ -25,7 +25,7 @@ export class List extends Component {
               key={todo.id}
               todo={todo}
               onUpdate={this.props.onUpdate}
-              onDelete={this.props.onDelete}
+              onRemove={this.props.onRemove}
             />
           )}
         </ul>

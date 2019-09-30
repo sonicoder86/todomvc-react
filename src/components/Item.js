@@ -6,7 +6,7 @@ export class Item extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     onUpdate: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onRemove: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,7 +26,7 @@ export class Item extends Component {
   }
 
   handleDelete() {
-    this.props.onDelete(this.props.todo.id);
+    this.props.onRemove(this.props.todo.id);
   }
 
   handleChange(event) {
