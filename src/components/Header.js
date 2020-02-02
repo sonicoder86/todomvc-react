@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { withStateAndDispatch } from '../store/container';
 const ENTER_KEY = 13;
 
 export class Header extends Component {
@@ -17,10 +17,12 @@ export class Header extends Component {
   };
 
   handleSubmit(event) {
-    if (event.which === ENTER_KEY) {
-      this.props.onCreate(this.state.name);
-      this.setState({ name: '' });
+    if (event.which !== ENTER_KEY) {
+      return;
     }
+
+    this.props.onCreate(this.state.name);
+    this.setState({ name: '' });
   }
 
   render() {
@@ -30,12 +32,13 @@ export class Header extends Component {
         <input
           className="new-todo"
           placeholder="What needs to be done?"
-          autoFocus={true}
           value={this.state.name}
-          onChange={(e) => this.handleChange(e)}
-          onKeyDown={(e) => this.handleSubmit(e)}
+          onInput={e => this.handleChange(e)}
+          onKeyUp={e => this.handleSubmit(e)}
         />
       </header>
     );
   }
 }
+
+export const HeaderContainer = withStateAndDispatch(Header);

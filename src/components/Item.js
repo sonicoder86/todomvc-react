@@ -11,7 +11,7 @@ export class Item extends Component {
 
   state = {
     editing: false,
-    name: this.props.todo.name
+    name: ''
   };
 
   handleEdit() {
@@ -19,13 +19,13 @@ export class Item extends Component {
   }
 
   handleCompleted() {
-    this.props.onUpdate(
-      this.props.todo.id,
-      { completed: !this.props.todo.completed }
-    );
+    this.props.onUpdate({
+      id: this.props.todo.id,
+      completed: !this.props.todo.completed
+    });
   }
 
-  handleDelete() {
+  handleRemove() {
     this.props.onRemove(this.props.todo.id);
   }
 
@@ -34,11 +34,15 @@ export class Item extends Component {
   }
 
   handleBlur() {
-    this.props.onUpdate(
-      this.props.todo.id,
-      { name: this.state.name }
-    );
+    this.props.onUpdate({
+      id: this.props.todo.id,
+      name: this.state.name
+    });
     this.setState({ editing: false });
+  }
+
+  componentDidMount() {
+    this.setState({ name: this.props.todo.name });
   }
 
   render() {
@@ -56,7 +60,7 @@ export class Item extends Component {
           <label onDoubleClick={() => this.handleEdit()}>{name}</label>
           <button
             className="destroy"
-            onClick={() => this.handleDelete()}
+            onClick={() => this.handleRemove()}
           />
         </div>
         {
@@ -64,9 +68,8 @@ export class Item extends Component {
           <input
             className="edit"
             value={this.state.name}
-            onChange={(e) => this.handleChange(e)}
+            onInput={e => this.handleChange(e)}
             onBlur={() => this.handleBlur()}
-            autoFocus={true}
           />
         }
       </li>
