@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStateAndDispatch } from '../store/container';
-const ENTER_KEY = 13;
+const ENTER_KEY = 'Enter';
 
 export class Header extends Component {
   static propTypes = {
@@ -17,7 +17,7 @@ export class Header extends Component {
   };
 
   handleSubmit(event) {
-    if (event.which !== ENTER_KEY) {
+    if (event.key !== ENTER_KEY) {
       return;
     }
 
@@ -35,6 +35,8 @@ export class Header extends Component {
           value={this.state.name}
           onInput={e => this.handleChange(e)}
           onKeyUp={e => this.handleSubmit(e)}
+          onChange={() => {}}
+          data-testid="todo-create"
         />
       </header>
     );
