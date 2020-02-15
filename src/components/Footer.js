@@ -16,24 +16,24 @@ export class Footer extends Component {
 
   render() {
     const itemText = this.props.itemsLeft === 1 ? 'item' : 'items';
-    const filterTitles = {
-      [FILTERS.all]: 'All',
-      [FILTERS.active]: 'Active',
-      [FILTERS.completed]: 'Completed'
-    };
+    const filterTitles = [
+      { key: FILTERS.all, value: 'All' },
+      { key: FILTERS.active, value: 'Active' },
+      { key: FILTERS.completed, value: 'Completed' }
+    ];
 
     return (
       <footer className="footer">
         <span className="todo-count"><strong>{this.props.itemsLeft}</strong><span> {itemText} left</span></span>
         <ul className="filters">
-          {Object.keys(filterTitles).map(filterKey =>
-            <li key={filterKey}>
+          {filterTitles.map(filterTitle =>
+            <li key={filterTitle.key}>
               <a
                 href="#"
-                className={classNames({ selected: filterKey === this.props.filter })}
-                onClick={() => this.props.onFilterSelect(filterKey)}
+                className={classNames({ selected: filterTitle.key === this.props.filter })}
+                onClick={() => this.props.onFilterSelect(filterTitle.key)}
               >
-                {filterTitles[filterKey]}
+                {filterTitle.value}
               </a>
             </li>
           )}
