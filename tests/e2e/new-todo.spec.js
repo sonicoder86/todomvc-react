@@ -1,5 +1,5 @@
 describe('New todo', () => {
-  it('it should create new todo', () => {
+  it('should create new todo', () => {
     cy.visit('/');
     cy.contains('h1', 'todos');
 
