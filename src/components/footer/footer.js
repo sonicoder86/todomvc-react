@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { FILTERS } from '../constants/Filters';
-import { withStateAndDispatch } from '../store/container';
+import { FILTERS } from '../../constants/filter';
+import { withStateAndDispatch } from '../../store';
 
 export class Footer extends Component {
   static propTypes = {

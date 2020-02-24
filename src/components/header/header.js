@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStateAndDispatch } from '../store/container';
+import { withStateAndDispatch } from '../../store';
 const ENTER_KEY = 'Enter';
 
 export class Header extends Component {

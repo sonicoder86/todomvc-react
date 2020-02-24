@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Item } from './Item';
-import { withStateAndDispatch } from '../store/container';
+import { Item } from '../item/item';
+import { withStateAndDispatch } from '../../store';
 
 export class List extends Component {
   static propTypes = {

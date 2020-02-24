@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import 'todomvc-app-css/index.css';
 import { Provider } from 'react-redux';
-import { storeFactory } from './store/factory';
-import { AppContainer } from './components/App';
+import { createStore } from './store/index';
+import { AppContainer } from './components/app/app';
 
 render(
-  <Provider store={storeFactory()}>
+  <Provider store={createStore()}>
     <AppContainer />
   </Provider>,
-  document.getElementsByTagName('app-root')[0]
+  document.querySelector('app-root')
 );

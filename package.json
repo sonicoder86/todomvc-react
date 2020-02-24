@@ -17,7 +17,7 @@
     "uuid": "^3.4.0"
   },
   "scripts": {
-    "start": "PORT=9300 BROWSER=none react-scripts start",
+    "start": "PORT=9200 BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "npm run test:unit",
     "test:unit": "react-scripts test --watchAll=false",
