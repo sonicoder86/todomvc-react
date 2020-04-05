@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "983c7aab9e7fdf179a18cf87580132c4",
+    "revision": "117f74f291fb0d2a169ba3d2fc40b4ba",
     "url": "https://blacksonic.github.io/todomvc-react/index.html"
   },
   {
