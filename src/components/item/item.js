@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export class Item extends Component {
-  static propTypes = {
-    todo: PropTypes.object.isRequired,
-    onUpdate: PropTypes.func.isRequired,
-    onRemove: PropTypes.func.isRequired
-  };
-
   state = {
     editing: false,
     name: ''
   };
+
+  componentDidMount() {
+    this.setState({ name: this.props.todo.name });
+  }
 
   handleEdit() {
     this.setState({ editing: true });
@@ -41,10 +39,6 @@ export class Item extends Component {
     this.setState({ editing: false });
   }
 
-  componentDidMount() {
-    this.setState({ name: this.props.todo.name });
-  }
-
   render() {
     const { name, completed } = this.props.todo;
 
@@ -65,15 +59,23 @@ export class Item extends Component {
           />
         </div>
         {
-          this.state.editing &&
-          <input
-            className="edit"
-            value={this.state.name}
-            onInput={e => this.handleChange(e)}
-            onBlur={() => this.handleBlur()}
-          />
+          this.state.editing
+          && (
+            <input
+              className="edit"
+              value={this.state.name}
+              onInput={e => this.handleChange(e)}
+              onBlur={() => this.handleBlur()}
+            />
+          )
         }
       </li>
     );
   }
 }
+
+Item.propTypes = {
+  todo: PropTypes.object.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired
+};

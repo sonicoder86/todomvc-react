@@ -8,11 +8,6 @@ import { FooterContainer } from '../footer/footer';
 import { CopyRight } from '../copy-right/copy-right';
 
 export class App extends Component {
-  static propTypes = {
-    todos: PropTypes.array.isRequired,
-    onLoad: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.onLoad(TodoLocal.loadTodos());
   }
@@ -26,19 +21,18 @@ export class App extends Component {
       <div id="app">
         <section className="todoapp">
           <HeaderContainer />
-          {
-            !!this.props.todos.length &&
-            <ListContainer />
-          }
-          {
-            !!this.props.todos.length &&
-            <FooterContainer />
-          }
+          {!!this.props.todos.length && <ListContainer />}
+          {!!this.props.todos.length && <FooterContainer />}
         </section>
         <CopyRight />
       </div>
     );
   }
 }
+
+App.propTypes = {
+  todos: PropTypes.array.isRequired,
+  onLoad: PropTypes.func.isRequired
+};
 
 export const AppContainer = withStateAndDispatch(App);

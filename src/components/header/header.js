@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStateAndDispatch } from '../../store';
+
 const ENTER_KEY = 'Enter';
 
 export class Header extends Component {
-  static propTypes = {
-    onCreate: PropTypes.func.isRequired
-  };
-
   state = {
     name: ''
   };
 
   handleChange(event) {
     this.setState({ name: event.target.value });
-  };
+  }
 
   handleSubmit(event) {
     if (event.key !== ENTER_KEY) {
@@ -42,5 +39,9 @@ export class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  onCreate: PropTypes.func.isRequired
+};
 
 export const HeaderContainer = withStateAndDispatch(Header);

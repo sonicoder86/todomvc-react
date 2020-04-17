@@ -1,6 +1,7 @@
 # TodoMVC built with React and Redux
 
 [![Build Status](https://travis-ci.com/blacksonic/todomvc-react.svg?branch=master)](https://travis-ci.com/blacksonic/todomvc-react)
+[![Dependencies Status](https://david-dm.org/blacksonic/todomvc-react/status.svg)](https://david-dm.org/blacksonic/todomvc-react)
 
 The well-known TodoMVC built with React and Redux in a structured and testable way.
 
@@ -18,6 +19,18 @@ The well-known TodoMVC built with React and Redux in a structured and testable w
 - [React-Redux](https://redux.js.org/basics/usage-with-react)
 - [PropTypes](https://github.com/facebook/prop-types)
 - [Classnames](https://github.com/JedWatson/classnames)
+
+## Usage
+
+After installing the dependencies the following NPM scripts become available:
+
+- `start`: starts the application in development mode on [http://localhost:9300](http://localhost:9300)
+- `build`: bundles the application for production into the `build` folder
+- `test`: runs unit and E2E tests
+- `test:unit`: runs unit tests with [Jest](https://jestjs.io/) in the `src` folder suffixed with `*.spec.js`
+- `test:e2e`: runs E2E tests with [Cypress](https://www.cypress.io/) in the `tests/e2e` folder suffixed with `*.spec.js`
+- `format`: formats the code with [Prettier](https://prettier.io/) within the `src` folder
+- `lint`: lint files with [ESLint](https://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript) and the Prettier config
 
 ## Component architecture
 

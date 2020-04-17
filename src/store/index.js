@@ -30,6 +30,6 @@ const mapDispatchToProps = dispatch => bindActionCreators(actionCreators, dispat
 
 export const withStateAndDispatch = Component => connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export const createStore = (state = { todos: [], filter: FILTERS.all }) => createReduxStore(
-  reducers, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const storeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const defaultState = { todos: [], filter: FILTERS.all };
+export const createStore = (state = defaultState) => createReduxStore(reducers, state, storeEnhancer);
