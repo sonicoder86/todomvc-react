@@ -23,7 +23,7 @@ export class Footer extends Component {
           {filterTitles.map(filterTitle => (
             <li key={filterTitle.key}>
               <a
-                href="#"
+                href="./#"
                 className={classNames({ selected: filterTitle.key === this.props.filter })}
                 onClick={() => this.props.onFilterSelect(filterTitle.key)}
               >
