@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://blacksonic.github.io/todomvc-react/precache-manifest.b2dd5c858ee8e3e62e574d531ba3c4b4.js"
+  "https://blacksonic.github.io/todomvc-react/precache-manifest.b6ce53efe432a0ace3f3decc3a9d82f2.js"
 );
 
 self.addEventListener('message', (event) => {
