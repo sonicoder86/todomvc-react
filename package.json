@@ -10,6 +10,7 @@
     "build": "CI=false react-scripts build",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "lint": "eslint 'src/**/*.{js,jsx}'",
+    "lint-rome": "rome check --format-only src/",
     "test": "npm run test:unit",
     "test:unit": "react-scripts test --watchAll=false",
     "test:e2e": "start-server-and-test start http://localhost:9300 cypress",
@@ -21,29 +22,30 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
+    "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "todomvc-app-css": "^2.3.0",
-    "uuid": "^8.1.0"
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.9.0",
-    "@testing-library/react": "^10.2.1",
-    "cypress": "^4.8.0",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "cypress": "^4.12.1",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.21.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "history": "^4.10.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "history": "^5.0.0",
     "jest-extended": "^0.11.5",
     "prettier": "^2.0.5",
-    "react-scripts": "^3.4.1",
-    "start-server-and-test": "^1.11.0"
+    "react-scripts": "^3.4.3",
+    "rome": "^10.0.4-beta",
+    "start-server-and-test": "^1.11.3"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,5 +53,28 @@
   "browserslist": [
     "last 1 chrome version",
     "last 1 firefox version"
-  ]
+  ],
+  "rome": {
+    "root": true,
+    "bundler": {
+      "mode": "modern"
+    },
+    "lint": {
+      "ignore": [
+        "build",
+        "coverage",
+        "node_modules",
+        "core/static",
+        "resources",
+        "test-fixtures",
+        "vendor",
+        "type-libs",
+        "lib/modules.js",
+        "prelude.ts",
+        "internal/web-ui",
+        "out",
+        "vscode/node_modules"
+      ]
+    }
+  }
 }
