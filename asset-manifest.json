@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "https://blacksonic.github.io/todomvc-react/static/js/main.74ffc444.chunk.js",
-    "main.js.map": "https://blacksonic.github.io/todomvc-react/static/js/main.74ffc444.chunk.js.map",
+    "main.js": "https://blacksonic.github.io/todomvc-react/static/js/main.652c8768.chunk.js",
+    "main.js.map": "https://blacksonic.github.io/todomvc-react/static/js/main.652c8768.chunk.js.map",
     "runtime-main.js": "https://blacksonic.github.io/todomvc-react/static/js/runtime-main.3ab74258.js",
     "runtime-main.js.map": "https://blacksonic.github.io/todomvc-react/static/js/runtime-main.3ab74258.js.map",
     "static/css/2.06fb57e5.chunk.css": "https://blacksonic.github.io/todomvc-react/static/css/2.06fb57e5.chunk.css",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.3ab74258.js",
     "static/css/2.06fb57e5.chunk.css",
     "static/js/2.5b0da1fb.chunk.js",
-    "static/js/main.74ffc444.chunk.js"
+    "static/js/main.652c8768.chunk.js"
   ]
 }
