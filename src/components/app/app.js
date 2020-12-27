@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TodoLocal } from '../../services/todo-local';
 import { withStateAndDispatch } from '../../store';
