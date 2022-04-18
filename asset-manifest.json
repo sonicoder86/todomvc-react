@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.js": "https://blacksonic.github.io/todomvc-react/static/js/main.652c8768.chunk.js",
-    "main.js.map": "https://blacksonic.github.io/todomvc-react/static/js/main.652c8768.chunk.js.map",
-    "runtime-main.js": "https://blacksonic.github.io/todomvc-react/static/js/runtime-main.3ab74258.js",
-    "runtime-main.js.map": "https://blacksonic.github.io/todomvc-react/static/js/runtime-main.3ab74258.js.map",
-    "static/css/2.06fb57e5.chunk.css": "https://blacksonic.github.io/todomvc-react/static/css/2.06fb57e5.chunk.css",
-    "static/js/2.5b0da1fb.chunk.js": "https://blacksonic.github.io/todomvc-react/static/js/2.5b0da1fb.chunk.js",
-    "static/js/2.5b0da1fb.chunk.js.map": "https://blacksonic.github.io/todomvc-react/static/js/2.5b0da1fb.chunk.js.map",
+    "main.css": "https://blacksonic.github.io/todomvc-react/static/css/main.f4543636.css",
+    "main.js": "https://blacksonic.github.io/todomvc-react/static/js/main.ffcb97ba.js",
     "index.html": "https://blacksonic.github.io/todomvc-react/index.html",
-    "static/css/2.06fb57e5.chunk.css.map": "https://blacksonic.github.io/todomvc-react/static/css/2.06fb57e5.chunk.css.map",
-    "static/js/2.5b0da1fb.chunk.js.LICENSE.txt": "https://blacksonic.github.io/todomvc-react/static/js/2.5b0da1fb.chunk.js.LICENSE.txt"
+    "main.f4543636.css.map": "https://blacksonic.github.io/todomvc-react/static/css/main.f4543636.css.map",
+    "main.ffcb97ba.js.map": "https://blacksonic.github.io/todomvc-react/static/js/main.ffcb97ba.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.3ab74258.js",
-    "static/css/2.06fb57e5.chunk.css",
-    "static/js/2.5b0da1fb.chunk.js",
-    "static/js/main.652c8768.chunk.js"
+    "static/css/main.f4543636.css",
+    "static/js/main.ffcb97ba.js"
   ]
 }
