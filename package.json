@@ -10,7 +10,6 @@
     "build": "CI=false react-scripts build",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "lint": "eslint 'src/**/*.{js,jsx}'",
-    "lint-rome": "rome check --format-only src/",
     "test": "npm run test:unit",
     "test:unit": "react-scripts test --watchAll=false",
     "test:e2e": "start-server-and-test start http://localhost:9300 cypress",
@@ -41,7 +40,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
-    "history": "^5.3.0",
     "jest-extended": "^2.0.0",
     "prettier": "^2.6.2",
     "react-scripts": "^5.0.1",
@@ -53,28 +51,5 @@
   "browserslist": [
     "last 1 chrome version",
     "last 1 firefox version"
-  ],
-  "rome": {
-    "root": true,
-    "bundler": {
-      "mode": "modern"
-    },
-    "lint": {
-      "ignore": [
-        "build",
-        "coverage",
-        "node_modules",
-        "core/static",
-        "resources",
-        "test-fixtures",
-        "vendor",
-        "type-libs",
-        "lib/modules.js",
-        "prelude.ts",
-        "internal/web-ui",
-        "out",
-        "vscode/node_modules"
-      ]
-    }
-  }
+  ]
 }
